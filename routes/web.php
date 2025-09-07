@@ -47,5 +47,7 @@ Route::get('/student/show', [StudentController::class, 'getData'])->name('studen
 Route::get('student/edit/{id}', [StudentController::class, 'edit'])->name('student.edit');
 Route::post('student/update/{id}', [StudentController::class, 'update'])->name('student.update');
 Route::get('student/delete/{id}', [StudentController::class, 'destroy'])->name('student.delete');
+Route::get('student/file-upload', [StudentController::class, 'fileUpload'])->name('student.file');
+Route::post('student/file-upload', [StudentController::class, 'fileUploadSubmit'])->name('student.file.submit');
 
 
