@@ -43,5 +43,5 @@ Route::get('/student', [StudentController::class, 'index'])->name('student.index
 Route::get('/student/getcourse', [StudentController::class, 'getCourse'])->name('student.course');
 Route::get('/student/create', [StudentController::class, 'create'])->name('student.create');
 Route::post('/student/store', [StudentController::class, 'store'])->name('student.store');
-Route::post('/student/show', [StudentController::class, 'getData'])->name('student.show');
+Route::get('/student/show', [StudentController::class, 'getData'])->name('student.show');
 

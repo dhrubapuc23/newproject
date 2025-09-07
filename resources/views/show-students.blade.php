@@ -16,14 +16,14 @@
                     @foreach ($students as $student)
                     <tr>
                         <td>{{ $student->id }}</td>
-                        <td>{{ $student->name }}</td>
+                        <td>{{ $student->student_name }}</td>
                         <td>{{ $student->email }}</td>
                         <td>{{ $student->semester }}</td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-           
+            {!! $students->withQueryString()->links('pagination::bootstrap-4') !!}
         </div>
     </div>
     

@@ -68,7 +68,7 @@ class StudentController extends Controller
 
     public function getData()
     {
-        $students = DB::table('students')->get();
+        $students = DB::table('students')->paginate(20);
         return view('show-students', ['students' => $students]);
     }
 
