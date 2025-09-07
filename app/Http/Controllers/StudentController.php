@@ -85,15 +85,22 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $student = DB::table('students')->find($id);
+        return view('edit-student', ['student' => $student]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StudentRequest $request, string $id)
     {
-        //
+        //dd($request->all());
+        DB::table('students')->where('id',$id)->update([
+            'student_name' => $request->name,
+            'email' => $request->email,
+            'semester' => $request->semester
+        ]);
+        return redirect()->route('student.show')->with('success','Data Updated Successfully');
     }
 
     /**
