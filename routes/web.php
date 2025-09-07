@@ -46,5 +46,6 @@ Route::post('/student/store', [StudentController::class, 'store'])->name('studen
 Route::get('/student/show', [StudentController::class, 'getData'])->name('student.show');
 Route::get('student/edit/{id}', [StudentController::class, 'edit'])->name('student.edit');
 Route::post('student/update/{id}', [StudentController::class, 'update'])->name('student.update');
+Route::get('student/delete/{id}', [StudentController::class, 'destroy'])->name('student.delete');
 
 

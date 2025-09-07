@@ -27,7 +27,7 @@
                         <td>{{ $student->email }}</td>
                         <td>{{ $student->semester }}</td>
                         <td><a href="{{route('student.edit',[$student->id])}}" class="btn btn-primary">Edit</a></td>
-                        <td><a href="http://" class="btn btn-danger">Delete</a></td>
+                        <td><a href="{{route('student.delete',[$student->id])}}" class="btn btn-danger" onclick="alert('Are you sure?')">Delete</a></td>
                     </tr>
                     @endforeach
                 </tbody>
