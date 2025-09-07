@@ -66,6 +66,12 @@ class StudentController extends Controller
         return redirect()->route('student.create')->with('success', 'Data inserted successfully');
     }
 
+    public function getData()
+    {
+        $students = DB::table('students')->get();
+        return view('show-students', ['students' => $students]);
+    }
+
     /**
      * Display the specified resource.
      */
