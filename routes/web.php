@@ -43,11 +43,16 @@ Route::get('/student', [StudentController::class, 'index'])->name('student.index
 Route::get('/student/getcourse', [StudentController::class, 'getCourse'])->name('student.course');
 Route::get('/student/create', [StudentController::class, 'create'])->name('student.create');
 Route::post('/student/store', [StudentController::class, 'store'])->name('student.store');
-Route::get('/student/show', [StudentController::class, 'getData'])->name('student.show');
+Route::get('/student/show', [StudentController::class, 'getData'])->name('student.show')->middleware('auth');
 Route::get('student/edit/{id}', [StudentController::class, 'edit'])->name('student.edit');
 Route::post('student/update/{id}', [StudentController::class, 'update'])->name('student.update');
 Route::get('student/delete/{id}', [StudentController::class, 'destroy'])->name('student.delete');
 Route::get('student/file-upload', [StudentController::class, 'fileUpload'])->name('student.file');
 Route::post('student/file-upload', [StudentController::class, 'fileUploadSubmit'])->name('student.file.submit');
+Route::get('get-pdf', [StudentController::class, 'getPDF'])->name('student.pdf');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

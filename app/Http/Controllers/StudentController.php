@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StudentRequest;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class StudentController extends Controller
 {
@@ -137,5 +138,12 @@ class StudentController extends Controller
         ]);
 
         return back()->with('success','You have successfully uploaded file.');
+    }
+
+    public function getPDF()
+    {
+        $students = DB::table('students')->get();
+        $pdf = Pdf::loadView('pdf-view', ['students' => $students]);
+        return $pdf->download('students.pdf');
     }
 }

@@ -1,5 +1,5 @@
-@extends('app')
-@section('content1')
+@extends('layouts.app')
+@section('content')
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Student List</h4>
