@@ -50,7 +50,7 @@ Route::get('student/delete/{id}', [StudentController::class, 'destroy'])->name('
 Route::get('student/file-upload', [StudentController::class, 'fileUpload'])->name('student.file');
 Route::post('student/file-upload', [StudentController::class, 'fileUploadSubmit'])->name('student.file.submit');
 Route::get('get-pdf', [StudentController::class, 'getPDF'])->name('student.pdf');
-
+Route::get('send-email', [StudentController::class, 'sendEmail'])->name('student.email');
 
 
 Auth::routes();

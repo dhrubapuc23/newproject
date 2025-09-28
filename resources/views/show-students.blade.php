@@ -3,6 +3,7 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Student List</h4>
+            <a href="{{route('student.pdf')}}" class="btn btn-info mb-3" style="float: right;">Download</a>
              @if (session('success'))
                 <div class="alert alert-success">
                     {{ session('success') }}

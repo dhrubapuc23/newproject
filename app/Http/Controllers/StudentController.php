@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StudentRequest;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Mail\TestEmail;
+use Illuminate\Support\Facades\Mail;
 
 class StudentController extends Controller
 {
@@ -145,5 +147,11 @@ class StudentController extends Controller
         $students = DB::table('students')->get();
         $pdf = Pdf::loadView('pdf-view', ['students' => $students]);
         return $pdf->download('students.pdf');
+    }
+
+    public function sendEmail()
+    {
+        Mail::to('abc@gmail.com')->send(new TestEmail());
+        return 'Email sent successfully';
     }
 }
